@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "utf-8" ?> 
+
+<!--***** videocontent.url = "http://(YOUR SERVER AND PORT IF NEEDED HERE)/hls/stream.m3u8" ***** --> 
+
+<component name = "LiveVideo" extends = "Scene" >
+
+  <script type = "text/brightscript" >
+
+    <![CDATA[
+
+    sub init()
+      videocontent = createObject("RoSGNode", "ContentNode")
+
+      videocontent.title = "Stream Name Here"
+      videocontent.streamformat = "hls"
+      videocontent.url = "https://Your_URL_Here/hls/stream.m3u8"
+
+      video = m.top.findNode("liveVideo")
+      video.content = videocontent
+
+      video.setFocus(true)
+      video.control = "play"
+    end sub
+
+    ]]>
+
+  </script>
+
+  <children >
+
+    <Video id = "liveVideo"/>
+
+  </children>
+
+</component>
